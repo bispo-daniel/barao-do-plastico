@@ -1,4 +1,4 @@
-import StoreRoundedIcon from '@mui/icons-material/StoreRounded';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 
 export default function Header() {
@@ -9,15 +9,15 @@ export default function Header() {
         LOGO
       </div>
 
-      <div className="w-full flex justify-around sm:w-[350px]">
+      <div className="w-full flex justify-around sm:w-[350px] text-bold">
         <button className='bg-blue-400 border-white border-2 rounded px-2 py-1 w-[150px]'>
-          <a href="/" className='no-underline text-white flex items-center justify-around text-bold'>
-            <StoreRoundedIcon/>
+          <a href="/" className='no-underline text-white flex items-center justify-around'>
+            <ShoppingCartRoundedIcon/>
             CARRINHO
           </a>
         </button>
         <button className='bg-blue-400 border-white border-2 rounded px-2 py-1 w-[150px]'>
-          <a href="/contacts" className='no-underline text-white flex items-center justify-around text-bold'>
+          <a href="/contacts" className='no-underline text-white flex items-center justify-around'>
             <PersonRoundedIcon/>
             CONTATOS
           </a>
