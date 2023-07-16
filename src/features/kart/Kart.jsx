@@ -14,7 +14,7 @@ export default function Kart() {
       currentKart += `${product.quantity} unidade(s) de ${product.productName}%0A`;
     });
   
-    const WhatsAppURL = `https://wa.me/11918658056?text=Olá! Segue meu Carrinho:%0A${currentKart}`;
+    const WhatsAppURL = `https://wa.me/5511918658056?text=Olá! Segue meu Carrinho:%0A${currentKart}`;
   
     window.open(WhatsAppURL);
   };  
