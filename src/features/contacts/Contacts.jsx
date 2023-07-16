@@ -19,7 +19,7 @@ function Contacts() {
                 <ContactCard link='https://www.facebook.com/' title="Facebook" text="Store's page" btnIcon={<FacebookIcon />} btnText="Seguir"/>
                 <ContactCard link='https://www.instagram.com/' title="Instagram" text="@virtual" btnIcon={<InstagramIcon />} btnText="Seguir"/>
                 <ContactCard link='https://www.youtube.com' title="Youtube" text="Store's channel" btnIcon={<YouTubeIcon />} btnText="Inscreva-se"/>
-                <ContactCard link='https://www.maps.google.com/' title="Endereço" text="22 Acacia avenue" btnIcon={<PlaceIcon />} btnText="Abrir Google Maps"/>
+                <ContactCard link='https://www.google.com/maps' title="Endereço" text="22 Acacia avenue" btnIcon={<PlaceIcon />} btnText="Abrir Google Maps"/>
             </div>
 
             <div className="map">
