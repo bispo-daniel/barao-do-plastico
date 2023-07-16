@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@popperjs/core':
+    specifier: ^2.11.7
+    version: 2.11.8
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.26)
@@ -52,6 +55,9 @@ devDependencies:
   eslint-plugin-react-refresh:
     specifier: ^0.4.1
     version: 0.4.1(eslint@8.44.0)
+  pnpm:
+    specifier: ^8.6.3
+    version: 8.6.3
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
@@ -1912,6 +1918,12 @@ packages:
   /pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
+    dev: true
+
+  /pnpm@8.6.3:
+    resolution: {integrity: sha512-0Y4neugHIJEEa8y8oJMfd9wwgHkc1hIq6JC/UEEl2K92s3+zPaKH26n7u22m67E+MU6fpKRkx+/+PYWZzr5yQw==}
+    engines: {node: '>=16.14'}
+    hasBin: true
     dev: true
 
   /postcss-import@15.1.0(postcss@8.4.26):
