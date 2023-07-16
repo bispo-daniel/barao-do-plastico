@@ -31,6 +31,7 @@ export default function Kart() {
       <button
         className="fixed w-[60px] h-[60px] z-50 rounded-full right-5 sm:right-10 bottom-20 sm:bottom-10 flex items-center justify-center"
         style={{ backgroundColor: '#25D366' }}
+        onClick={sendSelectedToWhatsApp}
       >
         <img src={WPPICON} alt="" className="w-[35px]" />
       </button>
