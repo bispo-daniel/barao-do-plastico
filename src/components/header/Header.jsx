@@ -3,7 +3,7 @@ import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 
 export default function Header() {
   return (
-    <header className="w-full max-w-[1280px] h-[50px] border-b-2 rounded-t sm:rounded-t-none sm:rounded-b border-blue-400 bg-blue-400 flex items-center justify-center bottom-0 sm:justify-between sm:px-10 fixed z-50 sm:top-0 sm:relative">
+    <header className="w-full max-w-[1280px] h-[60px] sm:h-[50px] border-b-2 rounded-t sm:rounded-t-none sm:rounded-b border-blue-400 bg-blue-400 flex items-center justify-center bottom-0 sm:justify-between sm:px-10 fixed z-50 sm:top-0 sm:relative">
      
       <div className="hidden sm:block text-white">
         LOGO
