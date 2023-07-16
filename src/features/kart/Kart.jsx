@@ -3,6 +3,8 @@ import { productsAtom } from '../../assets/products/Products'
 import WPPICON from '../../assets/images/WPP-Icon.png';
 import { useAtom } from 'jotai';
 
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
 export default function Kart() {
   const [products, setProducts] = useAtom(productsAtom);
 
@@ -38,10 +40,10 @@ export default function Kart() {
 
       <button
         onClick={sendSelectedToWhatsApp}
-        className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-between"
+        className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around"
         style={{ backgroundColor: '#25D366' }}
       >
-        <img src={WPPICON} alt="" className="w-[40px]" />
+        <img src={WPPICON} alt="" className="w-[30px]" />
         <span className="text-gray-50 no-underline text-xl font-bold">Envie seu Carrinho</span>
       </button>
     </main>
