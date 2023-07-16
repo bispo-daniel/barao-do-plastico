@@ -3,8 +3,6 @@ import { productsAtom } from '../../assets/products/Products'
 import WPPICON from '../../assets/images/WPP-Icon.png';
 import { useAtom } from 'jotai';
 
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
 export default function Kart() {
   const [products, setProducts] = useAtom(productsAtom);
 
@@ -21,6 +19,13 @@ export default function Kart() {
     window.open(WhatsAppURL);
   };  
 
+  const hideButtonText = () => {
+    const buttonText = document.getElementById('whatsappFixedButtonText')
+    buttonText.style.display = 'none'
+  }
+
+  setTimeout(hideButtonText, 2000);
+
   return (
     <main className="w-full max-w-[1240px] flex flex-col gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
       {products.map((product, key) => (
@@ -31,10 +36,11 @@ export default function Kart() {
       ))}
 
       <button
-        className="fixed w-[60px] h-[60px] z-50 rounded-full right-5 sm:right-10 bottom-20 sm:bottom-10 flex items-center justify-center"
+        className="fixed w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center"
         style={{ backgroundColor: '#25D366' }}
         onClick={sendSelectedToWhatsApp}
       >
+        <span id='whatsappFixedButtonText' className='text-white font-semibold font-xl'>Envie seu Carrinho no WhatsApp</span>
         <img src={WPPICON} alt="" className="w-[35px]" />
       </button>
 

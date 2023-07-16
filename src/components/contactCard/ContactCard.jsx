@@ -4,7 +4,9 @@ function ContactCard(props) {
           <div className="card-body">
               <h5 className="card-title">{props.title}</h5>
               <p className="card-text">{props.text}</p>
-              <a href="https://google.com" className="btn btn-primary">{props.btnText}</a>
+              <a href={props.link} className="btn btn-primary ">
+                <span className="w-[100%] gap-2 flex">{props.btnIcon}{props.btnText}</span>
+              </a>
           </div>
       </div>
   )
