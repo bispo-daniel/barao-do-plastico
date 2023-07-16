@@ -41,10 +41,10 @@ export default function Kart() {
     }, 3000);
   
     return (
-      <div className="fixed z-50 right-2 top-6 w-[250px] px-2 bg-opacity-80 flex items-center h-fit border-2 border-red-600 text-white bg-red-600 rounded" role='alert'>
+      <div className="fixed z-50 right-2 uppercase top-6 w-[270px] px-2 bg-opacity-80 flex items-center h-fit border-2 border-red-600 text-white bg-red-600 rounded" role='alert'>
         Seu carrinho está está vazio. 
         <br/>
-        Selecione seus produtos.
+        Adicione seus produtos.
       </div>
     )
   }
