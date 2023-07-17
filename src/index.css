@@ -58,8 +58,9 @@ h1 {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   background-color: transparent;
+  height: 4px;
 }
 
 /* Track */

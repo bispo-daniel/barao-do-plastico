@@ -18,13 +18,13 @@ export default function Kart() {
 
       selectedProducts.forEach((product) => {
         currentKart += `${product.quantity} unidade(s) de ${product.productName}%0A`;
-        total += (product.productPrice * product.quantity);
+        total += product.productPrice * product.quantity;
       });
-    
-      let formatedTotal = total.toLocaleString('pt-BR', {
+
+      let formatedTotal = total.toLocaleString("pt-BR", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
-      })
+      });
 
       const WhatsAppURL = `https://wa.me/5511918658056?text=Olá! Segue meu Carrinho:%0A%0A${currentKart}%0ASubtotal: R$ ${formatedTotal}`;
 
