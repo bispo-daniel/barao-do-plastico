@@ -40,8 +40,6 @@ export default function Card({ product }) {
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
-    // backgroundColor: 'transparent',
-    // color: 'white'
   };
 
   const [elementShowing, setElementShowing] = useState("image");
@@ -64,9 +62,10 @@ export default function Card({ product }) {
         )}
 
         {elementShowing === "description" ? (
-          <p className="w-[220px] max-h-[220px] overflow-y-scroll">
-            {productDescription}
-          </p>
+          <p className="w-[220px] max-h-[220px] overflow-y-scroll text-gray-800 font-medium leading-relaxed text-sm ">
+          {productDescription}
+        </p>
+        
         ) : (
           <img
             src={imagePath}
