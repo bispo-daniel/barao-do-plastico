@@ -3,7 +3,8 @@ import { productsAtom } from "../../assets/products/Products";
 import WPPICON from "../../assets/images/WPP-Icon.png";
 import { useAtom } from "jotai";
 import { useState } from "react";
-import { useEffect } from "react";
+import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
+import SortRoundedIcon from '@mui/icons-material/SortRounded';
 
 export default function Kart() {
   const [products, setProducts] = useAtom(productsAtom);
@@ -60,6 +61,31 @@ export default function Kart() {
 
   return (
     <main className="w-full max-w-[1240px] flex flex-col gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
+      <header className='w-[100%] h-[60px] rounded border-2 border-blue-600 dark:text-white flex items-center justify-between px-3'>
+        <div className="dropdown">
+          <button className="flex items-center gap-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <SortRoundedIcon/>
+            Ordenar
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a className="dropdown-item" href="#">Under Development...</a></li>
+            <li><a className="dropdown-item" href="#">Sort</a></li>
+            <li><a className="dropdown-item" href="#">Coming Soon!</a></li>
+          </ul>
+        </div>
+        <div className="dropdown">
+          <button className="flex items-center gap-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <FilterListRoundedIcon/>
+            Filtrar
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a className="dropdown-item" href="#">Under Development...</a></li>
+            <li><a className="dropdown-item" href="#">Filters</a></li>
+            <li><a className="dropdown-item" href="#">Coming Soon!</a></li>
+          </ul>
+        </div>
+      </header>
+
       {products.map((product, key) => (
         <Card key={key} product={product} />
       ))}
