@@ -67,10 +67,10 @@ export default function Kart() {
             <SortRoundedIcon/>
             Ordenar
           </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a className="dropdown-item" href="#">Under Development...</a></li>
-            <li><a className="dropdown-item" href="#">Sort</a></li>
-            <li><a className="dropdown-item" href="#">Coming Soon!</a></li>
+          <ul className="dropdown-menu dark:bg-[#3c3c3c] " aria-labelledby="dropdownMenuButton1">
+            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Under Development...</a></li>
+            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Sort</a></li>
+            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Coming Soon!</a></li>
           </ul>
         </div>
         <div className="dropdown">
@@ -78,10 +78,10 @@ export default function Kart() {
             <FilterListRoundedIcon/>
             Filtrar
           </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a className="dropdown-item" href="#">Under Development...</a></li>
-            <li><a className="dropdown-item" href="#">Filters</a></li>
-            <li><a className="dropdown-item" href="#">Coming Soon!</a></li>
+          <ul className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white" aria-labelledby="dropdownMenuButton1">
+            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Under Development...</a></li>
+            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Filters</a></li>
+            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Coming Soon!</a></li>
           </ul>
         </div>
       </header>
@@ -91,8 +91,7 @@ export default function Kart() {
       ))}
 
       <button
-        className="fixed w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center"
-        style={{ backgroundColor: "#25D366" }}
+        className="fixed bg-[#25D366] hover:bg-green-600 hover:shadow-2xl w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center"
         onClick={sendSelectedToWhatsApp}
       >
         <span
@@ -106,8 +105,7 @@ export default function Kart() {
 
       <button
         onClick={sendSelectedToWhatsApp}
-        className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around"
-        style={{ backgroundColor: "#25D366" }}
+        className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl"
       >
         <img src={WPPICON} alt="" className="w-[30px]" />
         <span className="text-gray-50 no-underline text-xl font-bold">
