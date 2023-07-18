@@ -62,7 +62,7 @@ export default function Card({ product }) {
         )}
 
         {elementShowing === "description" ? (
-          <p className="w-[220px] max-h-[220px] overflow-y-scroll text-gray-800 font-medium leading-relaxed text-sm ">
+          <p className="w-[100%] h-[250px] mb-0 pl-2 pt-2 overflow-y-scroll text-gray-800 font-medium leading-relaxed text-sm ">
           {productDescription}
         </p>
         
