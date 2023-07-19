@@ -10,6 +10,26 @@ export default function Kart() {
   const [products, setProducts] = useAtom(productsAtom);
   const [alertIsOpen, setAlertIsOpen] = useState(false);
 
+  const descendingPrice = () => {
+    const sorted = [...products].sort((obj1, obj2) => obj2.productPrice - obj1.productPrice);
+    setProducts(sorted)
+  }
+
+  const ascendingPrice = () => {
+    const sorted = [...products].sort((obj1, obj2) => obj1.productPrice - obj2.productPrice);
+    setProducts(sorted)
+  }
+
+  const descendingName = () => {
+    const sortedProducts = [...products].sort((obj1, obj2) => obj2.productName.localeCompare(obj1.productName));
+    setProducts(sortedProducts);
+  };
+  
+  const ascendingName = () => {
+    const sortedProducts = [...products].sort((obj1, obj2) => obj1.productName.localeCompare(obj2.productName));
+    setProducts(sortedProducts);
+  };
+
   const sendSelectedToWhatsApp = () => {
     const selectedProducts = products.filter((product) => product.quantity > 0);
 
@@ -68,9 +88,10 @@ export default function Kart() {
             Ordenar
           </button>
           <ul className="dropdown-menu dark:bg-[#3c3c3c] " aria-labelledby="dropdownMenuButton1">
-            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Under Development...</a></li>
-            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Sort</a></li>
-            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Coming Soon!</a></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => ascendingPrice(e)}>Preço Crescente</button></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => descendingPrice(e)}>Preço Decrescente</button></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => ascendingName(e)}>Nome Crescente</button></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => descendingName(e)}>Nome Decrescente</button></li>
           </ul>
         </div>
         <div className="dropdown">
