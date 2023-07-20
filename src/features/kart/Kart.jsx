@@ -7,7 +7,8 @@ import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import SortRoundedIcon from '@mui/icons-material/SortRounded';
 
 export default function Kart() {
-  const [products, setProducts] = useAtom(productsAtom);
+  const [productsAtomValue] = useAtom(productsAtom); 
+  const [products, setProducts] = useState(productsAtomValue); 
   const [alertIsOpen, setAlertIsOpen] = useState(false);
 
   const descendingPrice = () => {
@@ -30,6 +31,17 @@ export default function Kart() {
     setProducts(sortedProducts);
   };
 
+  const filterProducts = (filterType) => {
+    if (filterType === 'Default') {
+      setProducts(productsAtomValue); 
+    } else {
+      const filteredProducts = productsAtomValue.filter((product) => {
+        return product.category === filterType;
+    });
+
+      setProducts(filteredProducts);
+    }
+  };
   const sendSelectedToWhatsApp = () => {
     const selectedProducts = products.filter((product) => product.quantity > 0);
 
@@ -99,10 +111,11 @@ export default function Kart() {
             <FilterListRoundedIcon/>
             Filtrar
           </button>
-          <ul className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white" aria-labelledby="dropdownMenuButton1">
-            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Under Development...</a></li>
-            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Filters</a></li>
-            <li><a className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" href="#">Coming Soon!</a></li>
+          <ul className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white max-w-[170px] truncate" aria-labelledby="dropdownMenuButton1">
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Default')}>Todas categoriasssssss</button></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Limpeza')}>Limpeza</button></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Roupa')}>Roupas</button></li>
+            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Instrumento')}>Instrumentos Musicais</button></li>
           </ul>
         </div>
       </header>
@@ -124,15 +137,17 @@ export default function Kart() {
         <img src={WPPICON} alt="" className="w-[35px]" />
       </button>
 
-      <button
-        onClick={sendSelectedToWhatsApp}
-        className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl"
-      >
-        <img src={WPPICON} alt="" className="w-[30px]" />
-        <span className="text-gray-50 no-underline text-xl font-bold">
-          Envie seu Carrinho
-        </span>
-      </button>
+      <div className="w-full flex justify-center">
+        <button
+          onClick={sendSelectedToWhatsApp}
+          className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl"
+        >
+          <img src={WPPICON} alt="" className="w-[30px]" />
+          <span className="text-gray-50 no-underline text-xl font-bold">
+            Envie seu Carrinho
+          </span>
+        </button>
+      </div>
 
       {alertIsOpen && alertComponent()}
     </main>

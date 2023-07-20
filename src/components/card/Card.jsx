@@ -50,7 +50,7 @@ export default function Card({ product }) {
 
   return (
     <div className="card border-opacity-100 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:cursor-pointer" style={cardStyles}>
-      <div className="w-[250px] min-h-[250px] flex items-end justify-center ">
+      <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
         {elementShowing === "description" ? (
           <button onClick={toggleElementShowing} className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600  flex items-center justify-center hover:bg-blue-700">
             <KeyboardArrowLeftRoundedIcon color='secondary'/>
@@ -69,9 +69,9 @@ export default function Card({ product }) {
         ) : (
           <img
             src={imagePath}
-            className="card-img-top pointer-events-none"
+            className="card-img-top pointer-events-none max-h-[250px] w-full p-1"
             alt="..."
-            style={{ width: "250px" }}
+            style={{ objectFit: 'cover' }}
           />
         )}
       </div>
@@ -79,8 +79,10 @@ export default function Card({ product }) {
       <hr className="w-full m-[0px] opacity-100 border-blue-600" />
 
       <div className="card-body flex flex-col items-center justify-around p-0 pb-2">
-        <h5 className="card-title">
-          {productName} - R$ {formatedPrice}
+        <h5 className="card-title flex flex-col">
+          <span className="max-w-[220px] truncate">{productName}</span> 
+          
+          <span className="max-w-[220px] truncate">R$ {formatedPrice}</span>
         </h5>
 
         <div className="flex">
