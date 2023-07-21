@@ -3,61 +3,69 @@ import { productsAtom } from "../../assets/products/Products";
 import WPPICON from "../../assets/images/WPP-Icon.png";
 import { useAtom } from "jotai";
 import { useState } from "react";
-import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
-import SortRoundedIcon from '@mui/icons-material/SortRounded';
+import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
+import SortRoundedIcon from "@mui/icons-material/SortRounded";
 import { useEffect } from "react";
 
 export default function Kart() {
-  const [productsAtomValue] = useAtom(productsAtom); 
-  const [products, setProducts] = useState(productsAtomValue); 
+  const [productsAtomValue] = useAtom(productsAtom);
+  const [products, setProducts] = useState(productsAtomValue);
 
   useEffect(() => {
-    setProducts(productsAtomValue)
-  }, [productsAtomValue])
-  
+    setProducts(productsAtomValue);
+  }, [productsAtomValue]);
+
   const [alertIsOpen, setAlertIsOpen] = useState(false);
 
-  const [ productsCategories, setProductsCategories ] = useState([])
+  const [productsCategories, setProductsCategories] = useState([]);
 
   useEffect(() => {
-    const auxiliarArray = [...productsCategories]
+    const auxiliarArray = [...productsCategories];
 
     productsAtomValue.forEach((product) => {
       if (!auxiliarArray.includes(product.category)) {
-        auxiliarArray.push(product.category)
+        auxiliarArray.push(product.category);
       }
-    })
-    
-    setProductsCategories(auxiliarArray)
-  }, [productsAtomValue])
+    });
+
+    setProductsCategories(auxiliarArray);
+  }, [productsAtomValue]);
 
   const descendingPrice = () => {
-    const sorted = [...products].sort((obj1, obj2) => obj2.productPrice - obj1.productPrice);
-    setProducts(sorted)
-  }
+    const sorted = [...products].sort(
+      (obj1, obj2) => obj2.productPrice - obj1.productPrice,
+    );
+    setProducts(sorted);
+  };
 
   const ascendingPrice = () => {
-    const sorted = [...products].sort((obj1, obj2) => obj1.productPrice - obj2.productPrice);
-    setProducts(sorted)
-  }
+    const sorted = [...products].sort(
+      (obj1, obj2) => obj1.productPrice - obj2.productPrice,
+    );
+    setProducts(sorted);
+  };
 
   const descendingName = () => {
-    const sortedProducts = [...products].sort((obj1, obj2) => obj2.productName.localeCompare(obj1.productName));
+    const sortedProducts = [...products].sort((obj1, obj2) =>
+      obj2.productName.localeCompare(obj1.productName),
+    );
     setProducts(sortedProducts);
   };
-  
+
   const ascendingName = () => {
-    const sortedProducts = [...products].sort((obj1, obj2) => obj1.productName.localeCompare(obj2.productName));
+    const sortedProducts = [...products].sort((obj1, obj2) =>
+      obj1.productName.localeCompare(obj2.productName),
+    );
     setProducts(sortedProducts);
   };
 
   const filterProducts = (filterType) => {
-    if (filterType === 'Default') {
-      setProducts(productsAtomValue); 
+    if (filterType === "Default") {
+      setProducts(productsAtomValue);
     } else {
       const filteredProducts = productsAtomValue.filter((product) => {
         return product.category === filterType;
-    });
+      });
 
       setProducts(filteredProducts);
     }
@@ -101,43 +109,104 @@ export default function Kart() {
 
     return (
       <div
-        className="fixed z-50 left-3 sm:left-6 bottom-20 sm:bottom-10 uppercase w-[270px] px-2 bg-opacity-80 flex items-center h-[60px] border-2 border-red-600 text-white bg-red-600 rounded"
+        className="fixed z-50 left-3 sm:left-6 bottom-20 sm:bottom-10 uppercase w-[250px] bg-opacity-80 flex items-center justify-center h-[80px] border-2 border-red-600 text-white bg-gradient-to-r from-red-600 to-red-800 rounded-lg shadow-lg"
         role="alert"
       >
-        Seu carrinho está está vazio.
-        <br />
-        Adicione seus produtos.
+        <p className="text-center m-0">
+          Seu carrinho está vazio.
+          <br />
+          Adicione seus produtos.
+        </p>
       </div>
     );
   };
 
   return (
-    <main className="w-full max-w-[1240px] flex flex-col gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
-      <header className='w-[100%] h-[60px] rounded border-2 border-blue-600 dark:text-white flex items-center justify-between px-3'>
+    <main className="w-full max-w-[1240px] flex flex-col gap-4 md:gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
+      <header className="w-[100%] h-[60px] rounded border-2 border-blue-600 dark:text-white flex items-center justify-between px-3">
         <div className="dropdown">
-          <button className="flex items-center gap-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <SortRoundedIcon/>
+          <button
+            className="flex items-center gap-1"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <SortRoundedIcon />
             Ordenar
           </button>
-          <ul className="dropdown-menu dark:bg-[#3c3c3c] " aria-labelledby="dropdownMenuButton1">
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => ascendingPrice(e)}>Preço Crescente</button></li>
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => descendingPrice(e)}>Preço Decrescente</button></li>
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => ascendingName(e)}>Nome Crescente</button></li>
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600" onClick={e => descendingName(e)}>Nome Decrescente</button></li>
+          <ul
+            className="dropdown-menu dark:bg-[#3c3c3c] "
+            aria-labelledby="dropdownMenuButton1"
+          >
+            <li>
+              <button
+                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                onClick={(e) => ascendingPrice(e)}
+              >
+                Preço Crescente
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                onClick={(e) => descendingPrice(e)}
+              >
+                Preço Decrescente
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                onClick={(e) => ascendingName(e)}
+              >
+                Nome Crescente
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                onClick={(e) => descendingName(e)}
+              >
+                Nome Decrescente
+              </button>
+            </li>
           </ul>
         </div>
         <div className="dropdown">
-          <button className="flex items-center gap-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <FilterListRoundedIcon/>
+          <button
+            className="flex items-center gap-1"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <FilterListRoundedIcon />
             Filtrar
           </button>
-          <ul className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white max-w-[170px] truncate" aria-labelledby="dropdownMenuButton1">
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Default')}>Todas categoriasssssss</button></li>
-            {
-              productsCategories[0] && productsCategories.map((productCategory, key) => (
-                <li key={key}><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts(productCategory)}>{productCategory}</button></li>
-              ))
-            }
+          <ul
+            className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white max-w-[170px] truncate"
+            aria-labelledby="dropdownMenuButton1"
+          >
+            <li>
+              <button
+                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
+                onClick={() => filterProducts("Default")}
+              >
+                Todas categoriasssssss
+              </button>
+            </li>
+            {productsCategories[0] &&
+              productsCategories.map((productCategory, key) => (
+                <li key={key}>
+                  <button
+                    className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
+                    onClick={() => filterProducts(productCategory)}
+                  >
+                    {productCategory}
+                  </button>
+                </li>
+              ))}
           </ul>
         </div>
       </header>
