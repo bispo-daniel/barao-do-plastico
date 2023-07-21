@@ -6,6 +6,7 @@ import { useState } from "react";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import SortRoundedIcon from "@mui/icons-material/SortRounded";
 import { useEffect } from "react";
+import { Tooltip } from "@mui/material";
 
 export default function Kart() {
   const [productsAtomValue] = useAtom(productsAtom);
@@ -125,86 +126,102 @@ export default function Kart() {
     <main className="w-full max-w-[1240px] flex flex-col gap-4 md:gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
       <header className="w-[100%] h-[60px] rounded border-2 border-blue-600 dark:text-white flex items-center justify-between px-3">
         <div className="dropdown">
-          <button
-            className="flex items-center gap-1"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <SortRoundedIcon />
-            Ordenar
-          </button>
+          <Tooltip arrow title='Ordenar os produtos'>
+            <button
+              className="flex items-center gap-1"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <SortRoundedIcon />
+              Ordenar
+            </button>
+          </Tooltip>
           <ul
             className="dropdown-menu dark:bg-[#3c3c3c] "
             aria-labelledby="dropdownMenuButton1"
           >
             <li>
-              <button
-                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
-                onClick={(e) => ascendingPrice(e)}
-              >
-                Preço Crescente
-              </button>
+              <Tooltip arrow title='Preço Crescente'>
+                <button
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  onClick={(e) => ascendingPrice(e)}
+                >
+                  Preço Crescente
+                </button>
+              </Tooltip>
             </li>
             <li>
-              <button
-                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
-                onClick={(e) => descendingPrice(e)}
-              >
-                Preço Decrescente
-              </button>
+              <Tooltip arrow title='Preço Decrescente'>
+                <button
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  onClick={(e) => descendingPrice(e)}
+                >
+                  Preço Decrescente
+                </button>
+              </Tooltip>
             </li>
             <li>
-              <button
-                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
-                onClick={(e) => ascendingName(e)}
-              >
-                Nome Crescente
-              </button>
+              <Tooltip arrow title='Nome Crescente'>
+                <button
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  onClick={(e) => ascendingName(e)}
+                >
+                  Nome Crescente
+                </button>
+              </Tooltip>
             </li>
             <li>
-              <button
-                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
-                onClick={(e) => descendingName(e)}
-              >
-                Nome Decrescente
-              </button>
+              <Tooltip arrow title='Nome Decrescente'>
+                <button
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  onClick={(e) => descendingName(e)}
+                >
+                  Nome Decrescente
+                </button>
+              </Tooltip>
             </li>
           </ul>
         </div>
         <div className="dropdown">
-          <button
-            className="flex items-center gap-1"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <FilterListRoundedIcon />
-            Filtrar
-          </button>
+          <Tooltip arrow title='Filtrar os produtos'>
+            <button
+              className="flex items-center gap-1"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <FilterListRoundedIcon />
+              Filtrar
+            </button>
+          </Tooltip>
           <ul
             className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white max-w-[170px] truncate"
             aria-labelledby="dropdownMenuButton1"
           >
             <li>
-              <button
-                className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
-                onClick={() => filterProducts("Default")}
-              >
-                Todas categoriasssssss
-              </button>
+              <Tooltip arrow title='Todas categorias'>
+                <button
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
+                  onClick={() => filterProducts("Default")}
+                >
+                  Todas categorias
+                </button>
+              </Tooltip>
             </li>
             {productsCategories[0] &&
               productsCategories.map((productCategory, key) => (
                 <li key={key}>
-                  <button
-                    className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
-                    onClick={() => filterProducts(productCategory)}
-                  >
-                    {productCategory}
-                  </button>
+                  <Tooltip arrow title={productCategory}>
+                    <button
+                      className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
+                      onClick={() => filterProducts(productCategory)}
+                    >
+                      {productCategory}
+                    </button>
+                  </Tooltip>
                 </li>
               ))}
           </ul>
@@ -215,29 +232,34 @@ export default function Kart() {
         <Card key={key} product={product} />
       ))}
 
-      <button
-        className="fixed bg-[#25D366] hover:bg-green-600 hover:shadow-2xl w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center"
-        onClick={sendSelectedToWhatsApp}
-      >
-        <span
-          id="whatsappFixedButtonText"
-          className="text-white font-semibold font-xl"
+      <Tooltip arrow title='Enviar no whatsapp'>
+        <button
+          className="fixed bg-[#25D366] hover:bg-green-600 hover:shadow-2xl w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center"
+          onClick={sendSelectedToWhatsApp}
         >
-          Envie seu Carrinho no WhatsApp
-        </span>
-        <img src={WPPICON} alt="" className="w-[35px]" />
-      </button>
+
+          <span
+            id="whatsappFixedButtonText"
+            className="text-white font-semibold font-xl"
+          >
+            Envie seu Carrinho no WhatsApp
+          </span>
+          <img src={WPPICON} alt="" className="w-[35px]" />
+        </button>
+      </Tooltip>
 
       <div className="w-full flex justify-center">
-        <button
-          onClick={sendSelectedToWhatsApp}
-          className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl"
-        >
-          <img src={WPPICON} alt="" className="w-[30px]" />
-          <span className="text-gray-50 no-underline text-xl font-bold">
-            Envie seu Carrinho
-          </span>
-        </button>
+        <Tooltip arrow title='Enviar carrinho no whatsapp'>
+          <button
+            onClick={sendSelectedToWhatsApp}
+            className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl"
+          >
+            <img src={WPPICON} alt="" className="w-[30px]" />
+            <span className="text-gray-50 no-underline text-xl font-bold">
+              Envie seu Carrinho
+            </span>
+          </button>
+        </Tooltip>
       </div>
 
       {alertIsOpen && alertComponent()}

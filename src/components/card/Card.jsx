@@ -3,6 +3,7 @@ import { productsAtom } from "../../assets/products/Products";
 import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 import { useState } from "react";
+import { Tooltip } from "@mui/material";
 
 export default function Card({ product }) {
   const {
@@ -64,19 +65,23 @@ export default function Card({ product }) {
     >
       <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
         {elementShowing === "description" ? (
-          <button
-            onClick={toggleElementShowing}
-            className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600  flex items-center justify-center hover:bg-blue-700"
-          >
-            <KeyboardArrowLeftRoundedIcon color="secondary" />
-          </button>
+          <Tooltip arrow title='Ver foto'>
+            <button
+              onClick={toggleElementShowing}
+              className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600  flex items-center justify-center hover:bg-blue-700"
+            >
+              <KeyboardArrowLeftRoundedIcon color="secondary" />
+            </button>
+          </Tooltip>
         ) : (
-          <button
-            onClick={toggleElementShowing}
-            className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600 flex items-center justify-center hover:bg-blue-700"
-          >
-            <KeyboardArrowRightRoundedIcon color="secondary" />
-          </button>
+          <Tooltip arrow title='Ver descrição'>
+            <button
+              onClick={toggleElementShowing}
+              className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600 flex items-center justify-center hover:bg-blue-700"
+            >
+              <KeyboardArrowRightRoundedIcon color="secondary" />
+            </button>
+          </Tooltip>
         )}
 
         {elementShowing === "description" ? (
@@ -103,21 +108,27 @@ export default function Card({ product }) {
         </h5>
 
         <div className="flex">
-          <button
-            onClick={decreaseQuantity}
-            className="h-[25x] w-[35px] bg-blue-600 rounded-l-full hover:bg-blue-700"
-          >
-            <KeyboardArrowLeftRoundedIcon color="secondary" />
-          </button>
-          <span className="w-[33px] text-center border-y-2 border-blue-600 text-xl font-medium">
-            {quantity}
-          </span>
-          <button
-            onClick={increaseQuantity}
-            className="h-[25x] w-[35px] bg-blue-600 rounded-r-full hover:bg-blue-700"
-          >
-            <KeyboardArrowRightRoundedIcon color="secondary" />
-          </button>
+          <Tooltip arrow title='Diminuir'>
+            <button
+              onClick={decreaseQuantity}
+              className="h-[25x] w-[35px] bg-blue-600 rounded-l-full hover:bg-blue-700"
+            >
+              <KeyboardArrowLeftRoundedIcon color="secondary" />
+            </button>
+          </Tooltip>
+          <Tooltip arrow title='Quantidade'>
+            <span className="w-[33px] text-center border-y-2 border-blue-600 text-xl font-medium">
+              {quantity}
+            </span>
+          </Tooltip>
+          <Tooltip arrow title="Aumentar">
+            <button
+              onClick={increaseQuantity}
+              className="h-[25x] w-[35px] bg-blue-600 rounded-r-full hover:bg-blue-700"
+            >
+              <KeyboardArrowRightRoundedIcon color="secondary" />
+            </button>
+          </Tooltip>
         </div>
       </div>
     </div>
