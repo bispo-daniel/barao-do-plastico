@@ -98,7 +98,7 @@ export const productsAtom = atom([
     productPrice: 65.0,
     quantity: 0,
     imagePath: ChapeuImage,
-    category: 'Roupa',
+    category: 'Roupas',
     productDescription: 'Chapéu do guitarrista Prince (Confia!)'
   },
   {
@@ -107,7 +107,7 @@ export const productsAtom = atom([
     productPrice: 99.99,
     quantity: 0,
     imagePath: BlusaoImage,
-    category: 'Roupa',
+    category: 'Roupas',
     productDescription: 'Blusão de moletom preto básico.'
   },
   {
@@ -116,7 +116,7 @@ export const productsAtom = atom([
     productPrice: 60.0,
     quantity: 0,
     imagePath: PoloImage,
-    category: 'Roupa',
+    category: 'Roupas',
     productDescription: 'Camiseta polo 100% algodão preta básica'
   },
   {
@@ -125,7 +125,7 @@ export const productsAtom = atom([
     productPrice: 90.0,
     quantity: 0,
     imagePath: CalçaImage,
-    category: 'Roupa',
+    category: 'Roupas',
     productDescription: 'Calça Jeans'
   },
   {
@@ -134,7 +134,7 @@ export const productsAtom = atom([
     productPrice: 155.99,
     quantity: 0,
     imagePath: TenisImage,
-    category: 'Roupa',
+    category: 'Roupas',
     productDescription: 'Tênis'
   },
   {
@@ -143,7 +143,7 @@ export const productsAtom = atom([
     productPrice: 29999.99,
     quantity: 0,
     imagePath: Guitar02,
-    category: 'Instrumento',
+    category: 'Instrumentos musicais',
     productDescription: 'A Gibson Tony Iommi SG Custom é uma guitarra elétrica de edição especial projetada em homenagem ao lendário guitarrista Tony Iommi, da banda Black Sabbath. Com um visual impressionante, a guitarra apresenta uma deslumbrante pintura preta e se destaca por suas cruzes de posição nas escalas, em vez dos tradicionais marcadores de ponto ou trapézio. Essas cruzes refletem a estética sombria e icônica associada a Tony Iommi e ao som poderoso do Black Sabbath. Além disso, a guitarra é equipada com captadores Gibson humbucking que proporcionam um timbre poderoso e distinto, tarraxas Grover para estabilidade de afinação e um perfil de braço confortável para facilitar a execução. Com sua aparência única e som característico, a Gibson Tony Iommi SG Custom é uma escolha cobiçada por fãs e músicos que buscam recriar o icônico som do mestre do heavy metal.'  
   },
   {
@@ -152,7 +152,7 @@ export const productsAtom = atom([
     productPrice: 15599.99,
     quantity: 0,
     imagePath: Guitar01,
-    category: 'Instrumento',
+    category: 'Instrumentos musicais',
     productDescription: 'A Fender Jimmy Page Telecaster Dragon é uma guitarra elétrica de edição especial projetada em colaboração com o lendário guitarrista Jimmy Page, famoso por seu papel influente no Led Zeppelin. Esse instrumento único presta homenagem à icônica arte "Dragon" que Page pintou à mão em sua Telecaster original de 1959. A Fender recriou meticulosamente o intrincado design, replicando todos os detalhes dos padrões de escamas do dragão, suas cores e encanto. A guitarra possui um corpo de cinzas em duas peças, um braço de bordo personalizado em formato oval C e duas captadores Custom \'59 single-coil para um som autêntico e vintage. Com sua aparência impressionante e excepcional habilidade de fabricação, a Fender Jimmy Page Telecaster Dragon não apenas representa uma notável homenagem a um músico icônico, mas também oferece aos músicos a oportunidade de canalizar o espírito atemporal e a magia da história do rock \'n roll.'
   },
   {
@@ -161,7 +161,7 @@ export const productsAtom = atom([
     productPrice: 1999999.99,
     quantity: 0,
     imagePath: Guitar03,
-    category: 'Instrumento',
+    category: 'Instrumentos musicais',
     productDescription: 'A Gibson Les Paul Custom Shop Slash Snakepit é uma guitarra elétrica de edição especial projetada em colaboração com o lendário guitarrista Slash. Com detalhes personalizados de serpentes desenhadas no corpo e braço, essa guitarra apresenta uma estética única e impressionante, refletindo o estilo marcante de Slash. Fabricada com os mais altos padrões da Custom Shop da Gibson, a Snakepit oferece um corpo sólido em mogno e tampo em maple esculpido, resultando em um timbre rico e ressonante. Seus captadores humbucking de alta qualidade proporcionam um som poderoso e versátil, tornando-a uma peça de colecionador cobiçada por entusiastas da música e fãs de Slash em todo o mundo.'
   },
 ]);

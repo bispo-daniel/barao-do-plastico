@@ -5,11 +5,31 @@ import { useAtom } from "jotai";
 import { useState } from "react";
 import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import SortRoundedIcon from '@mui/icons-material/SortRounded';
+import { useEffect } from "react";
 
 export default function Kart() {
   const [productsAtomValue] = useAtom(productsAtom); 
   const [products, setProducts] = useState(productsAtomValue); 
+
+  useEffect(() => {
+    setProducts(productsAtomValue)
+  }, [productsAtomValue])
+  
   const [alertIsOpen, setAlertIsOpen] = useState(false);
+
+  const [ productsCategories, setProductsCategories ] = useState([])
+
+  useEffect(() => {
+    const auxiliarArray = [...productsCategories]
+
+    productsAtomValue.forEach((product) => {
+      if (!auxiliarArray.includes(product.category)) {
+        auxiliarArray.push(product.category)
+      }
+    })
+    
+    setProductsCategories(auxiliarArray)
+  }, [productsAtomValue])
 
   const descendingPrice = () => {
     const sorted = [...products].sort((obj1, obj2) => obj2.productPrice - obj1.productPrice);
@@ -113,9 +133,11 @@ export default function Kart() {
           </button>
           <ul className="dropdown-menu dark:bg-[#3c3c3c] dark:text-white max-w-[170px] truncate" aria-labelledby="dropdownMenuButton1">
             <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Default')}>Todas categoriasssssss</button></li>
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Limpeza')}>Limpeza</button></li>
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Roupa')}>Roupas</button></li>
-            <li><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts('Instrumento')}>Instrumentos Musicais</button></li>
+            {
+              productsCategories[0] && productsCategories.map((productCategory, key) => (
+                <li key={key}><button className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate" onClick={() => filterProducts(productCategory)}>{productCategory}</button></li>
+              ))
+            }
           </ul>
         </div>
       </header>
