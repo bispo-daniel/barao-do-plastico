@@ -143,44 +143,36 @@ export default function Kart() {
             aria-labelledby="dropdownMenuButton1"
           >
             <li>
-              <Tooltip arrow title='Preço Crescente'>
                 <button
                   className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
                   onClick={(e) => ascendingPrice(e)}
                 >
                   Preço Crescente
                 </button>
-              </Tooltip>
             </li>
             <li>
-              <Tooltip arrow title='Preço Decrescente'>
                 <button
                   className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
                   onClick={(e) => descendingPrice(e)}
                 >
                   Preço Decrescente
                 </button>
-              </Tooltip>
             </li>
             <li>
-              <Tooltip arrow title='Nome Crescente'>
                 <button
                   className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
                   onClick={(e) => ascendingName(e)}
                 >
                   Nome Crescente
                 </button>
-              </Tooltip>
             </li>
             <li>
-              <Tooltip arrow title='Nome Decrescente'>
                 <button
                   className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
                   onClick={(e) => descendingName(e)}
                 >
                   Nome Decrescente
                 </button>
-              </Tooltip>
             </li>
           </ul>
         </div>
@@ -202,26 +194,22 @@ export default function Kart() {
             aria-labelledby="dropdownMenuButton1"
           >
             <li>
-              <Tooltip arrow title='Todas categorias'>
                 <button
                   className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
                   onClick={() => filterProducts("Default")}
                 >
                   Todas categorias
                 </button>
-              </Tooltip>
             </li>
             {productsCategories[0] &&
               productsCategories.map((productCategory, key) => (
                 <li key={key}>
-                  <Tooltip arrow title={productCategory}>
                     <button
                       className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
                       onClick={() => filterProducts(productCategory)}
                     >
                       {productCategory}
                     </button>
-                  </Tooltip>
                 </li>
               ))}
           </ul>
