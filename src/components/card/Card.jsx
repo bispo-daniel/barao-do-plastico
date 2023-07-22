@@ -65,23 +65,19 @@ export default function Card({ product }) {
     >
       <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
         {elementShowing === "description" ? (
-          <Tooltip arrow title='Ver foto'>
             <button
               onClick={toggleElementShowing}
               className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600  flex items-center justify-center hover:bg-blue-700"
             >
               <KeyboardArrowLeftRoundedIcon color="secondary" />
             </button>
-          </Tooltip>
         ) : (
-          <Tooltip arrow title='Ver descrição'>
             <button
               onClick={toggleElementShowing}
               className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600 flex items-center justify-center hover:bg-blue-700"
             >
               <KeyboardArrowRightRoundedIcon color="secondary" />
             </button>
-          </Tooltip>
         )}
 
         {elementShowing === "description" ? (
