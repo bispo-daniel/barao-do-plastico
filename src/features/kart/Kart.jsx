@@ -1,22 +1,24 @@
-import Card from "../../components/card/Card";
 import { productsAtom } from "../../assets/products/Products";
-import WPPICON from "../../assets/images/WPP-Icon.png";
-import { useAtom } from "jotai";
-import { useState } from "react";
+import Card from "../../components/card/Card";
+import Toast from "../../components/toast/Toast";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import SortRoundedIcon from "@mui/icons-material/SortRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { useAtom } from "jotai";
+import { useState } from "react";
 import { useEffect } from "react";
 import { Tooltip } from "@mui/material";
+import { toast } from "react-toastify";
 
 export default function Kart() {
   const [productsAtomValue] = useAtom(productsAtom);
   const [products, setProducts] = useState(productsAtomValue);
 
+  const [alertIsOpen, setAlertIsOpen] = useState(false);
+
   useEffect(() => {
     setProducts(productsAtomValue);
   }, [productsAtomValue]);
-
-  const [alertIsOpen, setAlertIsOpen] = useState(false);
 
   const [productsCategories, setProductsCategories] = useState([]);
 
@@ -71,6 +73,7 @@ export default function Kart() {
       setProducts(filteredProducts);
     }
   };
+
   const sendSelectedToWhatsApp = () => {
     const selectedProducts = products.filter((product) => product.quantity > 0);
 
@@ -93,36 +96,24 @@ export default function Kart() {
       window.open(WhatsAppURL);
     } else {
       setAlertIsOpen(true);
+      toast.error("Seu carrinho está vazio...");
     }
   };
 
-  const hideButtonText = () => {
-    const buttonText = document.getElementById("whatsappFixedButtonText");
-    buttonText.style.display = "none";
-  };
+  const [showButtonText, setShowButtonText] = useState(true)
 
-  setTimeout(hideButtonText, 3000);
-
-  const alertComponent = () => {
-    setTimeout(() => {
-      setAlertIsOpen(false);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowButtonText(false);
     }, 3000);
 
-    return (
-      <div
-        className="fixed z-50 left-3 sm:left-6 bottom-20 sm:bottom-10 uppercase w-[250px] bg-opacity-80 flex items-center justify-center h-[80px] border-2 border-red-600 text-white bg-gradient-to-r from-red-600 to-red-800 rounded-lg shadow-lg"
-        role="alert"
-      >
-        <p className="text-center m-0">
-          Seu carrinho está vazio.
-          <br />
-          Adicione seus produtos.
-        </p>
-      </div>
-    );
-  };
+    return () => clearTimeout(timeout);
+  }, [])
 
   return (
+    <>
+    {alertIsOpen && ( <Toast /> )}
+
     <main className="w-full max-w-[1240px] flex flex-col gap-4 md:gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
       <header className="w-[100%] h-[60px] rounded border-2 border-blue-600 dark:text-white flex items-center justify-between px-3">
         <div className="dropdown">
@@ -222,17 +213,18 @@ export default function Kart() {
 
       <Tooltip arrow title='Enviar no whatsapp'>
         <button
-          className="fixed bg-[#25D366] hover:bg-green-600 hover:shadow-2xl w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center"
+          className="fixed bg-[#25D366] hover:bg-green-600 hover:shadow-2xl w-fit gap-2 p-2 min-w-[60px] h-[60px] transition-all z-50 rounded-full right-3 sm:right-6 bottom-20 sm:bottom-10 flex items-center justify-center hover:scale-105"
           onClick={sendSelectedToWhatsApp}
         >
-
-          <span
-            id="whatsappFixedButtonText"
-            className="text-white font-semibold font-xl"
-          >
-            Envie seu Carrinho no WhatsApp
-          </span>
-          <img src={WPPICON} alt="" className="w-[35px]" />
+          {showButtonText && (
+            <span
+              id="whatsappFixedButtonText"
+              className="text-white font-semibold font-xl"
+            >
+              Envie seu Carrinho no WhatsApp
+            </span>
+          )}
+          <WhatsAppIcon sx={{color: 'white'}} fontSize="large"/>
         </button>
       </Tooltip>
 
@@ -240,17 +232,16 @@ export default function Kart() {
         <Tooltip arrow title='Enviar carrinho no whatsapp'>
           <button
             onClick={sendSelectedToWhatsApp}
-            className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl"
+            className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl hover:scale-105 transition-all"
           >
-            <img src={WPPICON} alt="" className="w-[30px]" />
+            <WhatsAppIcon sx={{color: 'white'}} fontSize="large"/>
             <span className="text-gray-50 no-underline text-xl font-bold">
               Envie seu Carrinho
             </span>
           </button>
         </Tooltip>
-      </div>
-
-      {alertIsOpen && alertComponent()}
+      </div>    
     </main>
+    </>
   );
 }

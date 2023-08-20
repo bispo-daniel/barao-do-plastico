@@ -60,7 +60,7 @@ export default function Card({ product }) {
 
   return (
     <div
-      className="card border-opacity-100 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:cursor-pointer"
+      className="card border-opacity-100 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:scale-105 transition"
       style={cardStyles}
     >
       <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
