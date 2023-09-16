@@ -91,7 +91,7 @@ export default function Kart() {
         maximumFractionDigits: 2,
       });
 
-      const WhatsAppURL = `https://wa.me/5511918658056?text=Olá! Segue meu Carrinho:%0A%0A${currentKart}%0ASubtotal: R$ ${formatedTotal}`;
+      const WhatsAppURL = `https://wa.me/5511958090337?text=Olá! Segue meu Carrinho:%0A%0A${currentKart}%0ASubtotal: R$ ${formatedTotal}`;
 
       window.open(WhatsAppURL);
     } else {
@@ -115,7 +115,7 @@ export default function Kart() {
     {alertIsOpen && ( <Toast /> )}
 
     <main className="w-full max-w-[1240px] flex flex-col gap-4 md:gap-5 items-center justify-center sm:flex-row sm:flex-wrap p-4">
-      <header className="w-[100%] h-[60px] rounded border-2 border-blue-600 dark:text-white flex items-center justify-between px-3">
+      <header className="w-[100%] h-[60px] rounded border-2 border-[#FF50B0] dark:text-white flex items-center justify-between px-3">
         <div className="dropdown">
           <Tooltip arrow title='Ordenar os produtos'>
             <button
@@ -135,7 +135,7 @@ export default function Kart() {
           >
             <li>
                 <button
-                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-[#FF50B0]"
                   onClick={(e) => ascendingPrice(e)}
                 >
                   Preço Crescente
@@ -143,7 +143,7 @@ export default function Kart() {
             </li>
             <li>
                 <button
-                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-[#FF50B0]"
                   onClick={(e) => descendingPrice(e)}
                 >
                   Preço Decrescente
@@ -151,7 +151,7 @@ export default function Kart() {
             </li>
             <li>
                 <button
-                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-[#FF50B0]"
                   onClick={(e) => ascendingName(e)}
                 >
                   Nome Crescente
@@ -159,7 +159,7 @@ export default function Kart() {
             </li>
             <li>
                 <button
-                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600"
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-[#FF50B0]"
                   onClick={(e) => descendingName(e)}
                 >
                   Nome Decrescente
@@ -186,7 +186,7 @@ export default function Kart() {
           >
             <li>
                 <button
-                  className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
+                  className="dropdown-item dark:text-white hover:text-white hover:bg-[#FF50B0] truncate"
                   onClick={() => filterProducts("Default")}
                 >
                   Todas categorias
@@ -196,7 +196,7 @@ export default function Kart() {
               productsCategories.map((productCategory, key) => (
                 <li key={key}>
                     <button
-                      className="dropdown-item dark:text-white hover:text-white hover:bg-blue-600 truncate"
+                      className="dropdown-item dark:text-white hover:text-white hover:bg-[#FF50B0] truncate"
                       onClick={() => filterProducts(productCategory)}
                     >
                       {productCategory}

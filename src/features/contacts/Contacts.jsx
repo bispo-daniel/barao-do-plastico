@@ -1,11 +1,8 @@
 import ContactCard from "../../components/contactCard/ContactCard.jsx";
 
 import CallRoundedIcon from "@mui/icons-material/CallRounded";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import PlaceIcon from "@mui/icons-material/Place";
 
 function Contacts() {
@@ -13,51 +10,30 @@ function Contacts() {
     <main className="w-full min-h-[80vh] flex justify-center flex-wrap flex-col text-center p-3 mb-12">
       <div className="cards w-full flex flex-wrap gap-3 justify-center">
         <ContactCard
-          link="https://wa.me/5511918658056?text=Olá!"
+          link="https://wa.me/5511958090337?text=Olá!"
           title="WhatsApp"
-          text="+55 (11) 91865-8056"
+          text="+55 (11) 95809-0337"
           btnIcon={<WhatsAppIcon />}
           btnText="Enviar Mensagem"
         />
         <ContactCard
-          link="tel:+5511918658056"
+          link="tel:+5511958090337"
           title="Telefone"
-          text="+55 (11) 91865-8056"
+          text="+55 (11) 95809-0337"
           btnIcon={<CallRoundedIcon />}
           btnText="Ligar"
         />
         <ContactCard
-          link="mailto:favelamind@gmail.com"
-          title="E-mail"
-          text="contact.example@example.com"
-          btnIcon={<EmailRoundedIcon />}
-          btnText="Enviar E-Mail"
-        />
-        <ContactCard
-          link="https://www.facebook.com/"
-          title="Facebook"
-          text="Store's page"
-          btnIcon={<FacebookIcon />}
-          btnText="Seguir"
-        />
-        <ContactCard
-          link="https://www.instagram.com/"
+          link="https://www.instagram.com/tobellafitness_oficial/"
           title="Instagram"
-          text="@virtual"
+          text="@tobellafitness_oficial"
           btnIcon={<InstagramIcon />}
           btnText="Seguir"
         />
         <ContactCard
-          link="https://www.youtube.com"
-          title="Youtube"
-          text="Store's channel"
-          btnIcon={<YouTubeIcon />}
-          btnText="Inscreva-se"
-        />
-        <ContactCard
-          link="https://www.google.com/maps"
+          link="https://maps.app.goo.gl/4PRThXpVeZHgmsid6"
           title="Endereço"
-          text="22 Acacia avenue"
+          text="Rua Peixoto Werneck, 106 - Artur Alvim, SP"
           btnIcon={<PlaceIcon />}
           btnText="Abrir Google Maps"
         />

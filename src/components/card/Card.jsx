@@ -60,21 +60,21 @@ export default function Card({ product }) {
 
   return (
     <div
-      className="card border-opacity-100 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:scale-105 transition"
+      className="card border-[#FF50B0] border-opacity-100 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:scale-105 transition"
       style={cardStyles}
     >
       <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
         {elementShowing === "description" ? (
             <button
               onClick={toggleElementShowing}
-              className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600  flex items-center justify-center hover:bg-blue-700"
+              className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0]  flex items-center justify-center hover:bg-[#ff8aca]"
             >
               <KeyboardArrowLeftRoundedIcon color="secondary" />
             </button>
         ) : (
             <button
               onClick={toggleElementShowing}
-              className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-blue-600 flex items-center justify-center hover:bg-blue-700"
+              className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0] flex items-center justify-center hover:bg-[#ff8aca]"
             >
               <KeyboardArrowRightRoundedIcon color="secondary" />
             </button>
@@ -94,7 +94,7 @@ export default function Card({ product }) {
         )}
       </div>
 
-      <hr className="w-full m-[0px] opacity-100 border-blue-600" />
+      <hr className="w-full m-[0px] opacity-100 border-[#FF50B0]" />
 
       <div className="card-body flex flex-col items-center justify-around p-0 pb-2">
         <h5 className="card-title flex flex-col pb-2">
@@ -107,20 +107,20 @@ export default function Card({ product }) {
           <Tooltip arrow title='Diminuir'>
             <button
               onClick={decreaseQuantity}
-              className="h-[25x] w-[35px] bg-blue-600 rounded-l-full hover:bg-blue-700"
+              className="h-[25x] w-[35px] bg-[#FF50B0] rounded-l-full hover:bg-[#ff8aca]"
             >
               <KeyboardArrowLeftRoundedIcon color="secondary" />
             </button>
           </Tooltip>
           <Tooltip arrow title='Quantidade'>
-            <span className="w-[33px] text-center border-y-2 border-blue-600 text-xl font-medium">
+            <span className="w-[33px] text-center border-y-2 border-[#FF50B0] text-xl font-medium">
               {quantity}
             </span>
           </Tooltip>
           <Tooltip arrow title="Aumentar">
             <button
               onClick={increaseQuantity}
-              className="h-[25x] w-[35px] bg-blue-600 rounded-r-full hover:bg-blue-700"
+              className="h-[25x] w-[35px] bg-[#FF50B0] rounded-r-full hover:bg-[#ff8aca]"
             >
               <KeyboardArrowRightRoundedIcon color="secondary" />
             </button>
