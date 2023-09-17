@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 export default function Toaster() {
   return (
     <>
-      <ToastContainer 
+      <ToastContainer
         position="bottom-left"
         autoClose={3000}
         limit={1}
@@ -17,5 +17,5 @@ export default function Toaster() {
         theme="dark"
       />
     </>
-  )
+  );
 }

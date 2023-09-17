@@ -6,7 +6,7 @@ import "tailwindcss/tailwind.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../materialUi.js";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 /*
   BUG:
@@ -21,5 +21,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </ThemeProvider>
+  </ThemeProvider>,
 );

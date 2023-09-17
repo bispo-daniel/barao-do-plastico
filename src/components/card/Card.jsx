@@ -60,24 +60,24 @@ export default function Card({ product }) {
 
   return (
     <div
-      className="card border-[#FF50B0] border-opacity-100 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:scale-105 transition"
+      className="card bg-[#e1e1e1] dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:scale-105 transition"
       style={cardStyles}
     >
       <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
         {elementShowing === "description" ? (
-            <button
-              onClick={toggleElementShowing}
-              className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0]  flex items-center justify-center hover:bg-[#ff8aca]"
-            >
-              <KeyboardArrowLeftRoundedIcon color="secondary" />
-            </button>
+          <button
+            onClick={toggleElementShowing}
+            className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0]  flex items-center justify-center hover:bg-[#ff8aca]"
+          >
+            <KeyboardArrowLeftRoundedIcon color="secondary" />
+          </button>
         ) : (
-            <button
-              onClick={toggleElementShowing}
-              className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0] flex items-center justify-center hover:bg-[#ff8aca]"
-            >
-              <KeyboardArrowRightRoundedIcon color="secondary" />
-            </button>
+          <button
+            onClick={toggleElementShowing}
+            className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0] flex items-center justify-center hover:bg-[#ff8aca]"
+          >
+            <KeyboardArrowRightRoundedIcon color="secondary" />
+          </button>
         )}
 
         {elementShowing === "description" ? (
@@ -94,7 +94,7 @@ export default function Card({ product }) {
         )}
       </div>
 
-      <hr className="w-full m-[0px] opacity-100 border-[#FF50B0]" />
+      <hr className="w-full m-[0px] opacity-100 border-[#29D0C0]" />
 
       <div className="card-body flex flex-col items-center justify-around p-0 pb-2">
         <h5 className="card-title flex flex-col pb-2">
@@ -104,7 +104,7 @@ export default function Card({ product }) {
         </h5>
 
         <div className="flex">
-          <Tooltip arrow title='Diminuir'>
+          <Tooltip arrow title="Diminuir">
             <button
               onClick={decreaseQuantity}
               className="h-[25x] w-[35px] bg-[#FF50B0] rounded-l-full hover:bg-[#ff8aca]"
@@ -112,7 +112,7 @@ export default function Card({ product }) {
               <KeyboardArrowLeftRoundedIcon color="secondary" />
             </button>
           </Tooltip>
-          <Tooltip arrow title='Quantidade'>
+          <Tooltip arrow title="Quantidade">
             <span className="w-[33px] text-center border-y-2 border-[#FF50B0] text-xl font-medium">
               {quantity}
             </span>
