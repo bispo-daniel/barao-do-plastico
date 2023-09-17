@@ -13,11 +13,11 @@ export default function Header() {
         <img src={Logo} alt="" className="h-[60px] sm:h-[50px] pointer-events-none hidden sm:block"/>
       </Link>
 
-      <div className="w-full flex justify-around sm:w-[350px] text-bold">
+      <div className="w-full flex justify-center sm:w-[350px] text-bold">
         <button
           className={`${
-            location.pathname === "/" ? "bg-[#ff8aca]" : "bg-[#FF50B0]"
-          } border-white border rounded px-2 py-1 w-[150px] hover:bg-[#ff8aca] hover:scale-105 transition`}
+            location.pathname === "/" ? "border-b-2 sm:border-b-0 sm:border-t border-[#ff8aca]" : "sm:border-b-0 sm:border-t-0"
+          } px-1 py-1 h-[60px] sm:h-[50px] w-[130px] hover:bg-[#ff8aca] transition`}
         >
           <Link to="/" className="no-underline">
             <span className="text-white flex items-center justify-around">
@@ -26,10 +26,11 @@ export default function Header() {
             </span>
           </Link>
         </button>
+
         <button
           className={`${
-            location.pathname === "/contacts" ? "bg-[#ff8aca]" : "bg-[#FF50B0]"
-          } border-white border rounded px-2 py-1 w-[150px] hover:bg-[#ff8aca] hover:scale-105 transition`}
+            location.pathname === "/contacts" ? "border-b-2 sm:border-b-0 sm:border-t border-[#ff8aca]" : "sm:border-b-0 sm:border-t-0"
+          } px-1 py-1 h-[60px] sm:h-[50px] w-[130px] hover:bg-[#ff8aca] transition`}
         >
           <Link to="/contacts" className="no-underline">
             <span className="text-white flex items-center justify-around">
