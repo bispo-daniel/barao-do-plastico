@@ -32,7 +32,7 @@ export default function Kart() {
     });
 
     setProductsCategories(auxiliarArray);
-  }, [productsAtomValue]);
+  }, [productsAtomValue, productsCategories]);
 
   const descendingPrice = () => {
     const sorted = [...products].sort(
