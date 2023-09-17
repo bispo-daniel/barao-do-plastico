@@ -13,7 +13,7 @@ export default function Header() {
         <img src={Logo} alt="" className="h-[60px] sm:h-[50px] pointer-events-none hidden sm:block"/>
       </Link>
 
-      <div className="w-full flex justify-center sm:w-[350px] text-bold">
+      <div className="w-full flex justify-center sm:w-fit text-bold">
         <button
           className={`${
             location.pathname === "/" ? "border-b-2 sm:border-b-0 sm:border-t border-[#ff8aca]" : "sm:border-b-0 sm:border-t-0"
