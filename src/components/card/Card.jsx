@@ -60,7 +60,7 @@ export default function Card({ product }) {
 
   return (
     <div
-      className="card bg-[#e1e1e1] dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:scale-105 transition"
+      className="card bg-[#f1f1f1] dark:bg-[#313131] dark:text-white hover:shadow-2xl hover:scale-105 transition"
       style={cardStyles}
     >
       <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
