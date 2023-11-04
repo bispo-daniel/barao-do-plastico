@@ -33,7 +33,8 @@ function Contacts() {
         <ContactCard
           link="https://maps.app.goo.gl/4PRThXpVeZHgmsid6"
           title="Endereço"
-          text="Rua Peixoto Werneck, 106 - Artur Alvim, SP"
+          text="Rua Peixoto Werneck, 106"
+          extra="Artur Alvim - SP"
           btnIcon={<PlaceIcon />}
           btnText="Abrir Google Maps"
         />

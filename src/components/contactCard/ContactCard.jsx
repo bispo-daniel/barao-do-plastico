@@ -1,10 +1,14 @@
-function ContactCard({ title, text, link, btnIcon, btnText }) {
+function ContactCard({ title, text, link, btnIcon, btnText, extra }) {
   return (
     <div className="card w-[18rem] text-center mb-3 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:cursor-pointer hover:scale-105 transition">
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-
-        <p className="card-text">{text}</p>
+      <div className="card-body flex flex-col justify-between items-center">
+        <div>
+          <h5 className="card-title">{title}</h5>
+          <span className="flex flex-col">
+            <p className={`card-text ${extra ? "mb-0" : undefined}`}>{text}</p>
+            <p className={`card-text ${extra ? "mb-2" : undefined}`}>{extra}</p>
+          </span>
+        </div>
 
         <a
           href={link}
