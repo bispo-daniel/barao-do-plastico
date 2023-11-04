@@ -8,8 +8,6 @@ import { productsAtom, displayFullSizeImage } from "@/store";
 import { Card, Toast, FullSizeImage } from "@/components";
 
 export default function Kart() {
-  console.log("Carregou");
-
   const [displayFullSizeImageAtom] = useAtom(displayFullSizeImage);
   const [productsAtomValue] = useAtom(productsAtom);
   const [products, setProducts] = useState(productsAtomValue);

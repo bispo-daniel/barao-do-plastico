@@ -24,7 +24,7 @@ export const ProductsList = [
   {
     productId: 0,
     productName: "Top Regata",
-    productPrice: 19.99,
+    productPrice: 39.99,
     quantity: 0,
     imagePath: Regata,
     category: "Regata",
@@ -33,7 +33,7 @@ export const ProductsList = [
   {
     productId: 1,
     productName: "Calças estampadas",
-    productPrice: 6.99,
+    productPrice: 99.99,
     quantity: 0,
     imagePath: Calças01,
     category: "Calças",
@@ -43,7 +43,7 @@ export const ProductsList = [
   {
     productId: 2,
     productName: "Calças lisas",
-    productPrice: 3.99,
+    productPrice: 89.99,
     quantity: 0,
     imagePath: Calças02,
     category: "Calças",
@@ -51,17 +51,17 @@ export const ProductsList = [
   },
   {
     productId: 3,
-    productName: "ShortSaia",
-    productPrice: 6.99,
+    productName: "Shorts Saia",
+    productPrice: 69.99,
     quantity: 0,
     imagePath: ShortSaia,
-    category: "ShortSaia",
+    category: "Shorts Saia",
     productDescription: "Shorts Saia Tobella Fitness. Tamanhos: P, M e G."
   },
   {
     productId: 4,
     productName: "Conjunto Calça 01",
-    productPrice: 34.99,
+    productPrice: 134.99,
     quantity: 0,
     imagePath: ConjuntoCalça01,
     category: "Conjunto Calça",
@@ -70,7 +70,7 @@ export const ProductsList = [
   {
     productId: 5,
     productName: "Conjunto Calça 02",
-    productPrice: 34.99,
+    productPrice: 134.99,
     quantity: 0,
     imagePath: ConjuntoCalça02,
     category: "Conjunto Calça",
@@ -79,7 +79,7 @@ export const ProductsList = [
   {
     productId: 6,
     productName: "Conjunto Calça 03",
-    productPrice: 34.99,
+    productPrice: 134.99,
     quantity: 0,
     imagePath: ConjuntoCalça03,
     category: "Conjunto Calça",
@@ -88,7 +88,7 @@ export const ProductsList = [
   {
     productId: 7,
     productName: "Conjunto Calça 04",
-    productPrice: 36.99,
+    productPrice: 136.99,
     quantity: 0,
     imagePath: ConjuntoCalça04,
     category: "Conjunto Calça",
@@ -97,7 +97,7 @@ export const ProductsList = [
   {
     productId: 8,
     productName: "Conjunto Calça 05",
-    productPrice: 38.99,
+    productPrice: 138.99,
     quantity: 0,
     imagePath: ConjuntoCalça05,
     category: "Conjunto Calça",
@@ -106,7 +106,7 @@ export const ProductsList = [
   {
     productId: 9,
     productName: "Conjunto Calça 06",
-    productPrice: 39.99,
+    productPrice: 139.99,
     quantity: 0,
     imagePath: ConjuntoCalça06,
     category: "Conjunto Calça",
@@ -115,7 +115,7 @@ export const ProductsList = [
   {
     productId: 10,
     productName: "Conjunto Calça 07",
-    productPrice: 39.99,
+    productPrice: 139.99,
     quantity: 0,
     imagePath: ConjuntoCalça07,
     category: "Conjunto Calça",
@@ -124,7 +124,7 @@ export const ProductsList = [
   {
     productId: 11,
     productName: "Conjunto Short 01",
-    productPrice: 26.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort01,
     category: "Conjunto Short",
@@ -133,7 +133,7 @@ export const ProductsList = [
   {
     productId: 12,
     productName: "Conjunto Short 02",
-    productPrice: 28.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort02,
     category: "Conjunto Short",
@@ -142,7 +142,7 @@ export const ProductsList = [
   {
     productId: 13,
     productName: "Conjunto Short 03",
-    productPrice: 30.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort03,
     category: "Conjunto Short",
@@ -151,7 +151,7 @@ export const ProductsList = [
   {
     productId: 14,
     productName: "Conjunto Short 04",
-    productPrice: 32.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort04,
     category: "Conjunto Short",
@@ -160,7 +160,7 @@ export const ProductsList = [
   {
     productId: 15,
     productName: "Conjunto Short 05",
-    productPrice: 29.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort05,
     category: "Conjunto Short",
@@ -169,7 +169,7 @@ export const ProductsList = [
   {
     productId: 16,
     productName: "Conjunto Short 06",
-    productPrice: 31.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort06,
     category: "Conjunto Short",
@@ -178,7 +178,7 @@ export const ProductsList = [
   {
     productId: 17,
     productName: "Conjunto Short 07",
-    productPrice: 33.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort07,
     category: "Conjunto Short",
@@ -187,7 +187,7 @@ export const ProductsList = [
   {
     productId: 18,
     productName: "Conjunto Short 08",
-    productPrice: 35.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort08,
     category: "Conjunto Short",
@@ -196,7 +196,7 @@ export const ProductsList = [
   {
     productId: 19,
     productName: "Conjunto Short 09",
-    productPrice: 33.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort09,
     category: "Conjunto Short",
@@ -205,7 +205,7 @@ export const ProductsList = [
   {
     productId: 20,
     productName: "Conjunto Short 10",
-    productPrice: 35.99,
+    productPrice: 100.0,
     quantity: 0,
     imagePath: ConjuntoShort10,
     category: "Conjunto Short",
