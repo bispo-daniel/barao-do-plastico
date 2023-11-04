@@ -1,9 +1,6 @@
-import ContactCard from "../../components/contactCard/ContactCard.jsx";
+import { Place, CallRounded, WhatsApp, Instagram } from "@mui/icons-material";
 
-import CallRoundedIcon from "@mui/icons-material/CallRounded";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import PlaceIcon from "@mui/icons-material/Place";
+import { ContactCard } from "@/components";
 
 function Contacts() {
   return (
@@ -13,21 +10,21 @@ function Contacts() {
           link="https://wa.me/5511958090337?text=Olá!"
           title="WhatsApp"
           text="+55 (11) 95809-0337"
-          btnIcon={<WhatsAppIcon />}
+          btnIcon={<WhatsApp />}
           btnText="Enviar Mensagem"
         />
         <ContactCard
           link="tel:+5511958090337"
           title="Telefone"
           text="+55 (11) 95809-0337"
-          btnIcon={<CallRoundedIcon />}
+          btnIcon={<CallRounded />}
           btnText="Ligar"
         />
         <ContactCard
           link="https://www.instagram.com/tobellafitness_oficial/"
           title="Instagram"
           text="@tobellafitness_oficial"
-          btnIcon={<InstagramIcon />}
+          btnIcon={<Instagram />}
           btnText="Seguir"
         />
         <ContactCard
@@ -35,7 +32,7 @@ function Contacts() {
           title="Endereço"
           text="Rua Peixoto Werneck, 106"
           extra="Artur Alvim - SP"
-          btnIcon={<PlaceIcon />}
+          btnIcon={<Place />}
           btnText="Abrir Google Maps"
         />
       </div>

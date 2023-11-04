@@ -1,9 +1,13 @@
-import { useAtom } from "jotai";
-import { productsAtom } from "../../assets/products/Products";
-import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
-import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
+import { useAtom, useSetAtom } from "jotai";
+import {
+  KeyboardArrowRightRounded,
+  KeyboardArrowLeftRounded
+} from "@mui/icons-material";
 import { useState } from "react";
 import { Tooltip } from "@mui/material";
+
+import { productsAtom } from "@/store";
+import { displayFullSizeImage, productFullSize } from "../store";
 
 export default function Card({ product }) {
   const {
@@ -12,19 +16,34 @@ export default function Card({ product }) {
     productPrice,
     imagePath,
     quantity,
-    productDescription,
+    productDescription
   } = product;
 
-  let formatedPrice = productPrice.toLocaleString("pt-BR", {
+  const [displayFullSizeImageAtom, setDisplayFullSizeImageAtom] =
+    useAtom(displayFullSizeImage);
+
+  const setProductAtom = useSetAtom(productFullSize);
+
+  const toggleDisplayFullSizeImageAtom = () => {
+    if (displayFullSizeImageAtom) {
+      setProductAtom(null);
+      setDisplayFullSizeImageAtom(false);
+    } else {
+      setProductAtom(product);
+      setDisplayFullSizeImageAtom(true);
+    }
+  };
+
+  let formattedPrice = productPrice.toLocaleString("pt-BR", {
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 2
   });
 
   const [products, setProducts] = useAtom(productsAtom);
 
   const increaseQuantity = () => {
     const updatedProducts = products.map((p) =>
-      p.productId === productId ? { ...p, quantity: p.quantity + 1 } : p,
+      p.productId === productId ? { ...p, quantity: p.quantity + 1 } : p
     );
     setProducts(updatedProducts);
   };
@@ -33,7 +52,7 @@ export default function Card({ product }) {
     const updatedProducts = products.map((p) =>
       p.productId === productId
         ? { ...p, quantity: Math.max(p.quantity - 1, 0) }
-        : p,
+        : p
     );
     setProducts(updatedProducts);
   };
@@ -47,7 +66,7 @@ export default function Card({ product }) {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    textAlign: "center",
+    textAlign: "center"
   };
 
   const [elementShowing, setElementShowing] = useState("image");
@@ -63,20 +82,20 @@ export default function Card({ product }) {
       className="card bg-[#f1f1f1] dark:bg-[#313131] dark:text-white hover:shadow-2xl hover:scale-105 transition"
       style={cardStyles}
     >
-      <div className="w-[250px] min-h-[250px] flex items-center justify-center ">
+      <div className="w-[250px] min-h-[250px] flex items-center justify-center">
         {elementShowing === "description" ? (
           <button
             onClick={toggleElementShowing}
             className="absolute left-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0]  flex items-center justify-center hover:bg-[#ff8aca]"
           >
-            <KeyboardArrowLeftRoundedIcon color="secondary" />
+            <KeyboardArrowLeftRounded color="secondary" />
           </button>
         ) : (
           <button
             onClick={toggleElementShowing}
             className="absolute right-1 top-[30%] rounded-full w-[25px] h-[25px] bg-[#FF50B0] flex items-center justify-center hover:bg-[#ff8aca]"
           >
-            <KeyboardArrowRightRoundedIcon color="secondary" />
+            <KeyboardArrowRightRounded color="secondary" />
           </button>
         )}
 
@@ -85,12 +104,17 @@ export default function Card({ product }) {
             {productDescription}
           </p>
         ) : (
-          <img
-            src={imagePath}
-            className="card-img-top pointer-events-none max-h-[250px] w-full p-1"
-            alt="..."
-            style={{ objectFit: "cover" }}
-          />
+          <div
+            className="w-full h-full"
+            onClick={() => toggleDisplayFullSizeImageAtom()}
+          >
+            <img
+              src={imagePath}
+              className="card-img-top pointer-events-none max-h-[250px] w-full p-1"
+              alt="..."
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         )}
       </div>
 
@@ -100,7 +124,7 @@ export default function Card({ product }) {
         <h5 className="card-title flex flex-col pb-2">
           <span className="max-w-[220px] truncate">{productName}</span>
 
-          <span className="max-w-[220px] truncate">R$ {formatedPrice}</span>
+          <span className="max-w-[220px] truncate">R$ {formattedPrice}</span>
         </h5>
 
         <div className="flex">
@@ -109,7 +133,7 @@ export default function Card({ product }) {
               onClick={decreaseQuantity}
               className="h-[25x] w-[35px] bg-[#FF50B0] rounded-l-full hover:bg-[#ff8aca]"
             >
-              <KeyboardArrowLeftRoundedIcon color="secondary" />
+              <KeyboardArrowLeftRounded color="secondary" />
             </button>
           </Tooltip>
           <Tooltip arrow title="Quantidade">
@@ -122,7 +146,7 @@ export default function Card({ product }) {
               onClick={increaseQuantity}
               className="h-[25x] w-[35px] bg-[#FF50B0] rounded-r-full hover:bg-[#ff8aca]"
             >
-              <KeyboardArrowRightRoundedIcon color="secondary" />
+              <KeyboardArrowRightRounded color="secondary" />
             </button>
           </Tooltip>
         </div>

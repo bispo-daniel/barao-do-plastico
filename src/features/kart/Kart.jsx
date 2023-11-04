@@ -1,16 +1,16 @@
-import { productsAtom } from "../../assets/products/Products";
-import Card from "../../components/card/Card";
-import Toast from "../../components/toast/Toast";
-import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
-import SortRoundedIcon from "@mui/icons-material/SortRounded";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { WhatsApp, SortRounded, FilterListRounded } from "@mui/icons-material";
 import { useAtom } from "jotai";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Tooltip } from "@mui/material";
 import { toast } from "react-toastify";
 
+import { productsAtom, displayFullSizeImage } from "@/store";
+import { Card, Toast, FullSizeImage } from "@/components";
+
 export default function Kart() {
+  console.log("Carregou");
+
+  const [displayFullSizeImageAtom] = useAtom(displayFullSizeImage);
   const [productsAtomValue] = useAtom(productsAtom);
   const [products, setProducts] = useState(productsAtomValue);
 
@@ -32,32 +32,32 @@ export default function Kart() {
     });
 
     setProductsCategories(auxiliarArray);
-  }, [productsAtomValue, productsCategories]);
+  }, [productsAtomValue]);
 
   const descendingPrice = () => {
     const sorted = [...products].sort(
-      (obj1, obj2) => obj2.productPrice - obj1.productPrice,
+      (obj1, obj2) => obj2.productPrice - obj1.productPrice
     );
     setProducts(sorted);
   };
 
   const ascendingPrice = () => {
     const sorted = [...products].sort(
-      (obj1, obj2) => obj1.productPrice - obj2.productPrice,
+      (obj1, obj2) => obj1.productPrice - obj2.productPrice
     );
     setProducts(sorted);
   };
 
   const descendingName = () => {
     const sortedProducts = [...products].sort((obj1, obj2) =>
-      obj2.productName.localeCompare(obj1.productName),
+      obj2.productName.localeCompare(obj1.productName)
     );
     setProducts(sortedProducts);
   };
 
   const ascendingName = () => {
     const sortedProducts = [...products].sort((obj1, obj2) =>
-      obj1.productName.localeCompare(obj2.productName),
+      obj1.productName.localeCompare(obj2.productName)
     );
     setProducts(sortedProducts);
   };
@@ -88,7 +88,7 @@ export default function Kart() {
 
       let formatedTotal = total.toLocaleString("pt-BR", {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 2
       });
 
       const WhatsAppURL = `https://wa.me/5511958090337?text=Olá! Segue meu Carrinho:%0A%0A${currentKart}%0ASubtotal: R$ ${formatedTotal}`;
@@ -125,7 +125,7 @@ export default function Kart() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <SortRoundedIcon />
+                <SortRounded />
                 Ordenar
               </button>
             </Tooltip>
@@ -177,7 +177,7 @@ export default function Kart() {
                 aria-expanded="false"
               >
                 Filtrar
-                <FilterListRoundedIcon />
+                <FilterListRounded />
               </button>
             </Tooltip>
             <ul
@@ -224,7 +224,7 @@ export default function Kart() {
                 Envie seu Carrinho no WhatsApp
               </span>
             )}
-            <WhatsAppIcon sx={{ color: "white" }} fontSize="large" />
+            <WhatsApp sx={{ color: "white" }} fontSize="large" />
           </button>
         </Tooltip>
 
@@ -234,7 +234,7 @@ export default function Kart() {
               onClick={sendSelectedToWhatsApp}
               className="rounded p-2 w-[250px] mb-20 sm:m-4 flex items-center justify-around bg-[#25D366] hover:bg-green-600 hover:shadow-2xl hover:scale-105 transition-all"
             >
-              <WhatsAppIcon sx={{ color: "white" }} fontSize="large" />
+              <WhatsApp sx={{ color: "white" }} fontSize="large" />
               <span className="text-gray-50 no-underline text-xl font-bold">
                 Envie seu Carrinho
               </span>
@@ -242,6 +242,8 @@ export default function Kart() {
           </Tooltip>
         </div>
       </main>
+
+      {displayFullSizeImageAtom && <FullSizeImage />}
     </>
   );
 }

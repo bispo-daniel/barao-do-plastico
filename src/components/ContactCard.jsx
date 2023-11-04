@@ -1,4 +1,11 @@
-function ContactCard({ title, text, link, btnIcon, btnText, extra }) {
+export default function ContactCard({
+  title,
+  text,
+  link,
+  btnIcon,
+  btnText,
+  extra
+}) {
   return (
     <div className="card w-[18rem] text-center mb-3 dark:bg-[#3c3c3c] dark:text-white hover:shadow-2xl hover:cursor-pointer hover:scale-105 transition">
       <div className="card-body flex flex-col justify-between items-center">
@@ -25,5 +32,3 @@ function ContactCard({ title, text, link, btnIcon, btnText, extra }) {
     </div>
   );
 }
-
-export default ContactCard;
